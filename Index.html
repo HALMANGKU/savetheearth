@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>냠냠 지구 지킴이 – 급식 잔반 줄이기</title>
+<meta name="description" content="초등학생이 급식 식판을 기록하며 잔반을 스스로 줄이는 학급용 웹앱">
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8ef;--card:#fff;--ink:#24321f;--muted:#6b7a64;--green:#3d9a4f;--green-d:#2b7a3b;--green-l:#e3f3df;--sun:#ffc93c;--sun-l:#fff4cf;--sky-l:#e3f1fc;--line:#e3e8da}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Gowun Dodum',system-ui,sans-serif;font-size:17px;line-height:1.6}
+h1,h2,h3,.btn{font-family:'Jua','Gowun Dodum',sans-serif;font-weight:400}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 60px}
+.hero{text-align:center;padding:10px 0 6px}
+.hero .em{font-size:72px;line-height:1}
+.hero h1{font-size:36px;margin:10px 0 4px}
+.hero p{color:var(--muted);margin:0}
+.card{background:var(--card);border-radius:22px;padding:22px;margin:18px 0;box-shadow:0 2px 0 var(--line)}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.btns{grid-template-columns:1fr}}
+.btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;border-radius:20px;padding:22px 14px;font-size:24px;color:#fff;background:var(--green);box-shadow:0 5px 0 var(--green-d)}
+.btn small{font-family:'Gowun Dodum';font-size:14px;opacity:.9}
+.btn.t{background:#fff;color:var(--green-d);border:2px solid var(--line);box-shadow:0 5px 0 var(--line)}
+.btn:active{transform:translateY(3px)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+@media(max-width:560px){.nums{grid-template-columns:1fr}}
+.nums div{background:var(--sun-l);border-radius:16px;padding:14px}
+.nums b{display:block;font-family:'Jua';font-size:28px}
+.muted{color:var(--muted);font-size:15px}
+.qr{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+#qr{background:#fff;padding:10px;border-radius:12px;border:2px solid var(--line);min-width:180px;min-height:180px;display:flex;align-items:center;justify-content:center}
+ul{margin:6px 0;padding-left:22px}
+.foot{text-align:center;color:var(--muted);font-size:13px;margin-top:26px}
+.foot a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="em">🌍</div>
+    <h1>냠냠 지구 지킴이</h1>
+    <p>급식을 맛있게 다 먹으면, 내 몸도 튼튼 지구도 웃어요!</p>
+  </div>
+
+  <div class="card">
+    <div class="btns">
+      <a class="btn" id="goStudent" href="#">🧒 학생 들어가기<small>별명과 비밀 숫자로 시작해요</small></a>
+      <a class="btn t" id="goTeacher" href="#">👩‍🏫 선생님 화면<small>교사 비밀번호가 필요해요</small></a>
+    </div>
+    <p class="muted" style="margin-top:14px">🔐 학교 구글 계정으로 로그인한 상태에서 열려요. 로그인 화면이 나오면 <b>학교 계정</b>으로 들어가 주세요.</p>
+  </div>
+
+  <div class="card">
+    <h2>왜 만들었나요?</h2>
+    <p>식판에 남긴 한 숟가락이 모이면, 해마다 수십억 원의 처리비와 온실가스가 됩니다.</p>
+    <div class="nums">
+      <div><b>6만 3천 톤</b>2024년 경기도 학교 급식 잔반</div>
+      <div><b>112억 원</b>한 해 잔반 처리비</div>
+      <div><b>36.3kg</b>학생 1명이 1년에 버린 양</div>
+    </div>
+    <p class="muted" style="margin-top:8px">출처: <a href="https://www.newsis.com/view/NISX20250611_0003209746" target="_blank" rel="noopener">뉴시스(2025.6.16), 경기도교육청 자료</a></p>
+    <p>이 앱은 학생이 <b>먹기 전·후 식판을 직접 기록</b>하고, 남긴 양을 이산화탄소와 소나무로, 먹은 양을 열량과 영양소로 보여 줍니다. 혼내는 대신 스스로 보고, 비교하고, 칭찬받으며 바꿔 가는 앱이에요.</p>
+  </div>
+
+  <div class="card">
+    <h2>이런 걸 할 수 있어요</h2>
+    <ul>
+      <li>📸 먹기 전·후 사진을 비교하며 반찬마다 남은 양 고르기</li>
+      <li>💪 먹은 열량과 영양소, 🌲 남긴 음식의 이산화탄소 보기</li>
+      <li>🎁 다 먹은 날 숨겨진 스티커 찾기, 이달의 나무 키우기</li>
+      <li>🍱 메뉴를 누르면 재료와 음식 이야기 알아보기</li>
+      <li>👩‍🏫 선생님은 학급 현황, 많이 남긴 메뉴, 나이스 식단 연동, 열량 자동 계산</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🔒 내 정보 지키기</h2>
+    <ul>
+      <li>진짜 이름 대신 <b>별명</b>만 써요. 비밀 숫자는 암호화되어 선생님도 볼 수 없어요.</li>
+      <li><b>사진은 저장하지 않아요.</b> 기록은 우리 선생님의 학교 구글 스프레드시트에만 저장돼요.</li>
+      <li>사진에는 얼굴이 나오지 않게 식판만 찍어요.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>📱 태블릿으로 바로 들어가기</h2>
+    <div class="qr">
+      <div id="qr"><span class="muted">QR 코드를 만드는 중…</span></div>
+      <p class="muted" style="flex:1;min-width:200px">카메라로 QR 코드를 찍으면 학생 화면이 열려요. 이 화면을 인쇄해 급식실이나 교실에 붙여 두세요.</p>
+    </div>
+  </div>
+
+  <p class="foot">냠냠 지구 지킴이 · 학급용 교육 앱 · 숫자는 교육용 어림값이에요</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  /* ▼ 여기 한 줄만 바꾸면 돼요: 앱스스크립트 [배포 관리]에 있는 웹 앱 주소(…/exec) */
+  var APP_URL = 'https://script.google.com/a/macros/icedu.kr/s/AKfycbxABHXemZXEJpP6Do-JvbQMc2r-78L7JMA8o03pmaBjGJB27l-c4rwTopSTPXHH8_Rr/exec';
+
+  document.getElementById('goStudent').href = APP_URL;
+  document.getElementById('goTeacher').href = APP_URL + '?page=teacher';
+  try {
+    document.getElementById('qr').innerHTML = '';
+    new QRCode(document.getElementById('qr'), { text: APP_URL, width: 180, height: 180 });
+  } catch (e) {
+    document.getElementById('qr').innerHTML = '<span class="muted">QR 코드를 만들지 못했어요. 위의 "학생 들어가기" 버튼을 써 주세요.</span>';
+  }
+</script>
+</body>
+</html>
